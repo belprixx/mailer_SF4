@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  webserver:
+    depends_on:
+      - php-fpm
+    image: nginx:alpine
+    container_name: http-nginx_arbd
+    environment:
+        - TZ=Europe/Paris
+    working_dir: /application
+    volumes:
+        - ./mailerClo5:/application
+        - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+     - 8000:80
+    networks:
+      - nginx-symfony
+
+  php-fpm:
+    build: ./php-fpm
+    container_name: symfony_mailer
+    environment:
+        - TZ=Europe/Paris
+    working_dir: /application
+    volumes:
+      - ./mailerClo5:/application
+      - ./php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+    networks:
+      - nginx-symfony
+    
+  nginx-symfony:
+    driver: bridge
