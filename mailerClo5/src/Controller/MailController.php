@@ -21,7 +21,7 @@ class MailController extends Controller
     }
 
     /**
-     * @Route("/mail", name="send_mail", methods={"POST"})
+     * @Route("/send_mail", name="send_mail", methods={"POST"})
      */
     public function sendMail(Request $request, \Swift_Mailer $mailer)
     {

@@ -11,12 +11,14 @@
         "symfony/framework-bundle": "*",
         "symfony/http-foundation": "*",
         "symfony/swiftmailer-bundle": "^3.2",
+        "symfony/twig-bundle": "*",
         "symfony/yaml": "*"
     },
     "require-dev": {
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.7",
-        "symfony/var-dumper": "*"
+        "symfony/var-dumper": "*",
+        "symfony/web-server-bundle": "*"
     },
     "config": {
         "preferred-install": {
