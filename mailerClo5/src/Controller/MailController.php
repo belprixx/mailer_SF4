@@ -37,8 +37,13 @@ class MailController extends Controller
                         ),
                         'text/html'
                     );
-        $mailer->send($message);
-        return new JsonResponse("E-mail send", 200);
+       if ($mailer->send($message) == true) {
+           return new JsonResponse("E-mail send to $recipent", 200);
+       }
+       else {
+           return new JsonResponse("E-mail not to $recipent", 400);
+       }
+
     }
 
 }

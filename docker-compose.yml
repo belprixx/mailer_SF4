@@ -1,11 +1,10 @@
 version: '3'
-
 services:
   webserver:
     depends_on:
       - php-fpm
     image: nginx:alpine
-    container_name: http-nginx_arbd
+    container_name: http-nginx_clo5
     environment:
         - TZ=Europe/Paris
     working_dir: /application
@@ -19,7 +18,7 @@ services:
 
   php-fpm:
     build: ./php-fpm
-    container_name: symfony_mailer
+    container_name: symfony-api_clo5
     environment:
         - TZ=Europe/Paris
     working_dir: /application
@@ -28,6 +27,18 @@ services:
       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
     networks:
       - nginx-symfony
-    
+      - maildev-symfony
+  maildev:
+    image: djfarrelly/maildev
+    restart: always
+    ports:
+      - "82:80"
+      - "26:1025"
+    networks:
+      - maildev-symfony
+
+networks:
   nginx-symfony:
+    driver: bridge
+  maildev-symfony:
     driver: bridge
