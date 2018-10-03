@@ -33,7 +33,8 @@ class MailController extends Controller
                     ->setTo($recipent)
                     ->setBody(
                         $this->renderView(
-                            "emails/$content.html.twig"
+                            "emails/home.html.twig",
+                            array('content' => $content)
                         ),
                         'text/html'
                     );

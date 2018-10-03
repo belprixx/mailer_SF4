@@ -17,11 +17,20 @@
     "doctrine/common": {
         "version": "v2.7.3"
     },
+    "doctrine/event-manager": {
+        "version": "v1.0.0"
+    },
     "doctrine/inflector": {
         "version": "v1.2.0"
     },
     "doctrine/lexer": {
         "version": "v1.0.1"
+    },
+    "doctrine/persistence": {
+        "version": "v1.0.1"
+    },
+    "doctrine/reflection": {
+        "version": "v1.0.0"
     },
     "egulias/email-validator": {
         "version": "2.1.5"
@@ -126,6 +135,9 @@
         "version": "v1.9.0"
     },
     "symfony/polyfill-mbstring": {
+        "version": "v1.9.0"
+    },
+    "symfony/polyfill-php72": {
         "version": "v1.9.0"
     },
     "symfony/process": {
