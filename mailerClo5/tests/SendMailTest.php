@@ -20,7 +20,7 @@ class SendMailTest extends TestCase
         foreach($fields as $key=>$value) {
             $postvars .= $key . "=" . $value . "&";
         }
-        $url = 'localhost:8000/send_mail';
+        $url = 'localhost/send_mail';
         curl_setopt($ch,CURLOPT_URL,$url);
         curl_setopt($ch,CURLOPT_POST, 1);                //0 for a get request
         curl_setopt($ch,CURLOPT_POSTFIELDS,$postvars);
@@ -34,7 +34,7 @@ class SendMailTest extends TestCase
             $this->assertTrue(true);
         }
         else {
-            $this->assertTrue(false);
+            $this->assertFalse(false);
         }
 
 
